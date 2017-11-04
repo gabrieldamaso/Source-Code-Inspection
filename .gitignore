@@ -1,3 +1,6 @@
 /Source Code Inspection/nbproject/private/
 /Source Code Inspection/dist/
 /Source Code Inspection/build/
+/bin/
+.classpath
+.project
