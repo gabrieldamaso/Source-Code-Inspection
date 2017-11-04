@@ -10,5 +10,13 @@ package br.calebe.ticketmachine.core;
  * @author gabri
  */
 public class App {
-    
+    public static void main(String[] args) {
+        
+        PapelMoeda papelMoeda = new PapelMoeda(10,1);
+        
+        TicketMachine ticketMachine = new TicketMachine(1);
+        
+        Troco troco = new Troco(1); 
+        
+    }
 }
