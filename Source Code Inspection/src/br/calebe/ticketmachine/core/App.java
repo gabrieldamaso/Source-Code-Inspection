@@ -18,5 +18,9 @@ public class App {
         
         Troco troco = new Troco(1); 
         
+        System.out.println(papelMoeda.toString());
+        System.out.println(ticketMachine.toString());
+        System.out.println(troco.toString());
+        
     }
 }
