@@ -5,22 +5,36 @@
  */
 package br.calebe.ticketmachine.core;
 
+import br.calebe.ticketmachine.exception.PapelMoedaInvalidaException;
+import br.calebe.ticketmachine.exception.SaldoInsuficienteException;
+
 /**
  *
  * @author gabri
  */
 public class App {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
+        TicketMachine atm = new TicketMachine(5);
         
-        PapelMoeda papelMoeda = new PapelMoeda(10,1);
+        System.out.println("saldo = " + atm.getSaldo());
+        int valorInserido = 100;
         
-        TicketMachine ticketMachine = new TicketMachine(1);
+        try {
+            atm.inserir(valorInserido);
+        } catch (PapelMoedaInvalidaException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        try {
+            System.out.println(atm.imprimir());
+        } catch (SaldoInsuficienteException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         
-        Troco troco = new Troco(1); 
+        System.out.println("saldo após o depósito de {"+valorInserido+"} = " + atm.getSaldo());
         
-        System.out.println(papelMoeda.toString());
-        System.out.println(ticketMachine.toString());
-        System.out.println(troco.toString());
         
     }
 }
