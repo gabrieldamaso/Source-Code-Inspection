@@ -39,26 +39,19 @@ public class TicketMachine {
     public Iterator<Integer> getTroco() {
         return null;
     }
-    
-   public void atualizarSaldo() throws SaldoInsuficienteException {
-      if (saldo < valor) {
-          throw new SaldoInsuficienteException("O seu saldo é insuficiente");
-      }else if(saldo > valor){
-           
-      } else{
-      
-      }
-   }
 
     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
           throw new SaldoInsuficienteException("O seu saldo é insuficiente");
         }
-        
-        saldo = saldo - valor;
+        subtraiBilheteDoSaldo();
         String result = "*****************\n";
         result += "*** R$ " + valor + ",00 ****\n";
         result += "*****************\n";
         return result;
+    }
+    
+    private Integer subtraiBilheteDoSaldo() {
+    	return this.saldo -= this.valor;
     }
 }
