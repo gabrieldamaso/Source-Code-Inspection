@@ -36,24 +36,27 @@ public class TicketMachine {
         return saldo;
     }
 
-    public Iterator<Integer> getTroco() {
-        return null;
+    public Iterator<PapelMoeda> getTroco() {
+         Troco troco = new Troco(saldo);         
+           
+        Iterator<PapelMoeda> listaTroco =  troco.getIterator();
+          
+        while(listaTroco.hasNext()){
+         System.out.println(listaTroco.next());
+        }
+         return  troco.getIterator();
     }
     
-   public void atualizarSaldo() throws SaldoInsuficienteException {
-      if (saldo < valor) {
-          throw new SaldoInsuficienteException("O seu saldo é insuficiente");
-      }else if(saldo > valor){
-           
-      } else{
-      
-      }
-   }
-
-    public String imprimir() throws SaldoInsuficienteException {
+    
+    
+    
+    
+     public String imprimir() throws SaldoInsuficienteException {
         if (saldo < valor) {
           throw new SaldoInsuficienteException("O seu saldo é insuficiente");
         }
+        
+        Iterator<PapelMoeda> listaTroco =  getTroco() ;
         
         saldo = saldo - valor;
         String result = "*****************\n";
